@@ -201,17 +201,18 @@ def check_emails():
 
 # --- Główna pętla agenta ---
 
+# ... (cały kod agenta) ...
+
+# --- Główna pętla agenta ---
 if __name__ == "__main__":
     logging.info("Agent AI startuje...")
-    logging.info("Sprawdzanie poczty będzie powtarzane co 60 sekund.")
+    logging.info("Sprawdzanie poczty będzie powtarzane co 15 sekund.")
     
     while True:
         try:
             check_emails()
         except Exception as e:
             logging.critical(f"Krytyczny błąd w głównej pętli: {e}", exc_info=True)
-            # W przypadku krytycznego błędu (np. utrata połączenia)
-            # i tak spróbujemy ponownie po przerwie
         
-        logging.info(f"Odpoczywam przez {CHECK_INTERVAL_SEC} sekund...")
-        time.sleep(CHECK_INTERVAL_SEC)
+        logging.info(f"Odpoczywam przez 15 sekund...")
+        time.sleep(15) # Ustawiamy interwał na 15 sekund
